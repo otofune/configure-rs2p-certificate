@@ -90,6 +90,10 @@ certbot certonly \
 
 これで証明書が取得できる。`$HOME/certificates/live/$DOMAIN` に保存されるはず。
 
+余談だが DNS プラグインも同様に pip にアップロードされている。必要に応じてインストールするとよいと思う。
+
+- certbot で PyPI を検索した結果: [Search results · PyPI](https://pypi.org/search/?q=certbot)
+
 証明書を設定する
 ---
 これについては [README](../README.md) を参照されたい。
