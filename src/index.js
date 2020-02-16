@@ -97,13 +97,13 @@ const getOptionsFromProcess = () => {
     return {
         gehirn: {
             root: 'https://api.gis.gehirn.jp/',
-            authorize: GEHIRN_API_AUTHORIZE,
-            containerLabel: GEHIRN_CONTAINER_LABEL,
-            containerId: GEHIRN_CONTAINER_ID
+            authorize: GEHIRN_API_AUTHORIZE.trim(),
+            containerLabel: GEHIRN_CONTAINER_LABEL.trim(),
+            containerId: GEHIRN_CONTAINER_ID.trim()
         },
-        siteDomain: SITE_DOMAIN,
+        siteDomain: SITE_DOMAIN.trim(),
         certbot: {
-            directory: CERTBOT_DIRECTORY
+            directory: CERTBOT_DIRECTORY.trim()
         }
     }
 }
