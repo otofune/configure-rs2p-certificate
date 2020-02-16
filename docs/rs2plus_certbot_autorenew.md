@@ -1,7 +1,7 @@
 Gehirn RS2 Plus に certbot を置いて Let's encrypt の証明書を自動更新する
 ===
 
-当初の目的を果したメモです
+RS2 Plus 上で証明書の取得及び更新を RS2 Plus 供えつけの cron, インストールした certbot と configure-rs2p-certificates (このリポジトリ) の組み合わせで作る
 
 certbot を入れる前に: Python 3 環境を作る
 ---

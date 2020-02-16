@@ -71,6 +71,10 @@ npm run
 
 ありそうな Q&A
 ---
+- 注意点はある?
+  + 環境変数を保存するファイルがあれば **パーミッションを 700 に** すべきです
+    * Gehirn RS2 Plus の API は証明書の秘密鍵も返却するようで、キーがあれば証明書を取得できます
+    * そうでなくても非常に権限の大きいキーとなるので、慎重になるべきです
 - これ Gehirn RS2 Plus でも動く?
   + 執筆時点のデフォルトの `v8.15.1` で動作することは確認ずみ
   + [:bamboo: openssl call: use utf-8 encoding · otofune/configure-rs2p-certificates@b04fee7](https://github.com/otofune/configure-rs2p-certificates/commit/b04fee74caa29128ce8aded3eaba2af2cf595b8a) のコミット以降なら動作するはず
