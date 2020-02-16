@@ -1,0 +1,15 @@
+{
+  "name": "configure-rs2p-certificates",
+  "version": "0.0.0",
+  "description": "Gehirn RS2 Plus の証明書をスクリプトから設定する",
+  "main": "src/index.js",
+  "author": "otofune <otofune@otofune.me>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "scripts": {
+    "start": "node ."
+  },
+  "private": true,
+}
