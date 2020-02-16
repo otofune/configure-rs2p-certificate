@@ -67,11 +67,20 @@ const updateCertificate = ({ getSites, putSite } = {}) => async (containerId, si
 }
 
 const convertKeyToPKCS1 = (pkcs8rsaprivate) => {
-    const keyObject = crypto.createPrivateKey({
-        format: 'pem',
-        key: pkcs8rsaprivate,
-    })
-    return keyObject.export({ format: 'pem', type: 'pkcs1' })
+    if ('createPrivateKey' in crypto) {
+        const keyObject = crypto.createPrivateKey({
+            format: 'pem',
+            key: pkcs8rsaprivate,
+        })
+        return keyObject.export({ format: 'pem', type: 'pkcs1' })
+    } else {
+        // fallback
+        const { status, stdout } = require('child_process').spawnSync('openssl', ['rsa'], { input: pkcs8rsaprivate  })
+        if (status !== 0) {
+            throw new PreconditionError(`convert key to PKCS#1 failed, openssl returns ${stdout}`)
+        }
+        return stdout
+    }
 }
 
 const getCertbotCertificates = (certbotDirectory, siteDomain) => {
