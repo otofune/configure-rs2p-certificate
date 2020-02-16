@@ -75,7 +75,7 @@ const convertKeyToPKCS1 = (pkcs8rsaprivate) => {
         return keyObject.export({ format: 'pem', type: 'pkcs1' })
     } else {
         // fallback
-        const { status, stdout } = require('child_process').spawnSync('openssl', ['rsa'], { input: pkcs8rsaprivate  })
+        const { status, stdout } = require('child_process').spawnSync('openssl', ['rsa'], { input: pkcs8rsaprivate, encoding: 'utf-8' })
         if (status !== 0) {
             throw new PreconditionError(`convert key to PKCS#1 failed, openssl returns ${stdout}`)
         }
