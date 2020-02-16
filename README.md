@@ -71,6 +71,11 @@ npm run
 
 エラーがなければなにも言わずに終了ステータス 0 で止まり、設定されているはず。
 
+ありそうな Q&A
+---
+- これ Gehirn RS2 Plus でも動く?
+  + [:bamboo: openssl call: use utf-8 encoding · otofune/configure-rs2p-certificates@b04fee7](https://github.com/otofune/configure-rs2p-certificates/commit/b04fee74caa29128ce8aded3eaba2af2cf595b8a) のコミット以降なら動作するはず
+
 TODO
 ---
 - certbot 以外に対応する
