@@ -88,6 +88,8 @@ const getCertbotCertificates = (certbotDirectory, siteDomain) => {
     const readLiveFile = (name) => fs.readFileSync(path.join(liveDirectory, `./${name}`), { encoding: 'utf-8' })
     const BEGIN_CERTIFICATE = '-----BEGIN CERTIFICATE-----'
     const fullchain = readLiveFile('fullchain.pem')
+    // certbot の生成する秘密鍵は常に PKCS#8 フォーマットで、Gehirn RS2 Plus は PKCS#1 しか対応していない
+    // https://support.gehirn.jp/manual/rs2plus/enable-site-tls/
     const key = convertKeyToPKCS1(readLiveFile('privkey.pem'))
     const [cert, ...intermediatesList] = fullchain.split(BEGIN_CERTIFICATE).slice(1).map(c => BEGIN_CERTIFICATE + c)
     const intermediates = intermediatesList.join('')
@@ -97,7 +99,7 @@ const getCertbotCertificates = (certbotDirectory, siteDomain) => {
 const getOptionsFromProcess = () => {
     const { CERTBOT_DIRECTORY, SITE_DOMAIN, GEHIRN_CONTAINER_LABEL, GEHIRN_CONTAINER_ID, GEHIRN_API_AUTHORIZE } = process.env
 
-    // あとでまともなライブラリにする
+    // 必要ならあとでまともなバリデーションライブラリにさしかえる
     if (!CERTBOT_DIRECTORY) throw new PreconditionError('CERTBOT_DIRECTORY is required')
     if (!SITE_DOMAIN) throw new PreconditionError('SITE_DOMAIN is required')
     if (!GEHIRN_CONTAINER_LABEL && !GEHIRN_CONTAINER_ID) throw new PreconditionError('GEHIRN_CONTAINER_LABEL or GEHIRN_CONTAINER_ID is required.')
