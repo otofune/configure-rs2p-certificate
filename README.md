@@ -74,7 +74,12 @@ npm run
 ありそうな Q&A
 ---
 - これ Gehirn RS2 Plus でも動く?
+  + 執筆時点のデフォルトの `v8.15.1` で動作することは確認ずみ
   + [:bamboo: openssl call: use utf-8 encoding · otofune/configure-rs2p-certificates@b04fee7](https://github.com/otofune/configure-rs2p-certificates/commit/b04fee74caa29128ce8aded3eaba2af2cf595b8a) のコミット以降なら動作するはず
+- では Gehirn RS2 Plus 上で Let's encrypt な証明書の取得/更新を自動で行える?
+  + cron もあるし可能そうだったので記事を書きました
+    * [Gehirn RS2 Plus に certbot を置いて Let's encrypt の証明書を自動更新する](./docs/rs2plus_certbot_autorenew.md)
+    * 私はこう設定してます
 
 TODO
 ---
