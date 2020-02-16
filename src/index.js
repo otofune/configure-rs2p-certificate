@@ -75,8 +75,8 @@ const convertKeyToPKCS1 = (pkcs8rsaprivate) => {
 }
 
 const getCertbotCertificates = (certbotDirectory, siteDomain) => {
-    const siteDirectory = path.join(certbotDirectory, `./certificates/live/${siteDomain}`)
-    const readLiveFile = (name) => fs.readFileSync(path.join(siteDirectory, `./${name}`), { encoding: 'utf-8' })
+    const liveDirectory = path.join(certbotDirectory, `./live/${siteDomain}`)
+    const readLiveFile = (name) => fs.readFileSync(path.join(liveDirectory, `./${name}`), { encoding: 'utf-8' })
     const BEGIN_CERTIFICATE = '-----BEGIN CERTIFICATE-----'
     const fullchain = readLiveFile('fullchain.pem')
     const key = convertKeyToPKCS1(readLiveFile('privkey.pem'))

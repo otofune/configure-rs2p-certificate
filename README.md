@@ -71,6 +71,5 @@ npm run
 
 TODO
 ---
-- 適当に書いたので TypeScript にする
-- バリデーションをちゃんとやる
 - certbot 以外に対応する
+- 適当に書いたので TypeScript にする
