@@ -63,9 +63,8 @@ pip install certbot
 次のような alias を貼ってしまおう。
 
 ```sh
-mkdir $HOME/certificates $HOME/certbot-logs
 alias certbot="certbot \
-    -config-dir $HOME/certificates \
+    --config-dir $HOME/certificates \
     --logs-dir $HOME/certbot-logs \
     --work-dir /tmp"
 ```
